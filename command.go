@@ -19,6 +19,8 @@ import (
 	"golang.org/x/net/trace"
 	"google.golang.org/grpc"
 	grpcReflection "google.golang.org/grpc/reflection/grpc_reflection_v1alpha"
+	"grpc-gateway-x/discovery"
+	reverse_proxy "grpc-gateway-x/reverse-proxy"
 	"net"
 	"net/http"
 	"os"
@@ -26,8 +28,6 @@ import (
 	"strings"
 	"syscall"
 	"time"
-	"vcs.intra.veigit.com/infra/grpc-gateway-x/discovery"
-	reverse_proxy "vcs.intra.veigit.com/infra/grpc-gateway-x/reverse-proxy"
 )
 
 func run(cmd *cobra.Command, _ []string) error {

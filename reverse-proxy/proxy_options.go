@@ -1,7 +1,7 @@
 package reverse_proxy
 
 import (
-	"vcs.intra.veigit.com/infra/grpc-gateway-x/discovery"
+	"grpc-gateway-x/discovery"
 )
 
 // WithEndpointParser set the parser to parse server endpoint from the grpc request path. if WithBackendAddr option is set, the parser won't be used.

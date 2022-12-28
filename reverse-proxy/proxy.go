@@ -15,11 +15,11 @@ import (
 	"google.golang.org/grpc/metadata"
 	grpcReflection "google.golang.org/grpc/reflection/grpc_reflection_v1alpha"
 	"google.golang.org/grpc/status"
+	"grpc-gateway-x/discovery"
 	"os"
 	"strings"
 	"sync"
 	"time"
-	"vcs.intra.veigit.com/infra/grpc-gateway-x/discovery"
 )
 
 const DefaultBackendConnPoolSize = 3
