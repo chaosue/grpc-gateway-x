@@ -8,6 +8,7 @@ and a reverse-proxy for GRPC servers to expose their services and response to th
 * proxy with GRPC protocol for app front or any backend app.
 * auto service-discovery via consul with full GRPC request method name, so multi-clustered services can be reverse-proxied. 
 * you can also explicitly specify the backend address in the configuration file. this will disable auto service-discovery.
+* multiple server/service info reflection.
 * for more configurable features, please refer to the `config.example.yaml` file.
  
 ### build
