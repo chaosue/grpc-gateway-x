@@ -1,0 +1,31 @@
+# port for grpc-web/http proxy server. set as 0 to disable this server.
+HttpPort: 3131
+# port for GRPC proxy server. set as 0 to disable this server.
+GrpcPort: 8787
+#BindHost: 0.0.0.0
+# BackendAddress when explicitly set the grpc backend address/ip:port, the service auto-discovery via consul will be disabled.
+#BackendAddress: 192.168.20.8:7100
+#ClientReadTimeout: 10000
+#ClientWriteTimeout: 10000
+#GracefulShutdownTimeout: 10000
+#GrpcMaxMessageSize: 4194304
+#AllowAllOrigins: true
+#AllowedOrigins: []
+#AllowedHeaders: []
+Consul:
+  Addr: 10.9.1.1:8500
+  Token:  04c77d9c-76be-052d-0f6e-d9676e89b0de
+  #DC: ""
+  #Scheme: https
+  #TlsVerifyCert: true
+  #TlsCaFile: /my/ca.pem
+#EnableTls: false
+#TlsVerifyCert: false
+#TlsCertFile: /my/server.pem
+#TlsKeyFile: /my/server.key.pem
+#TlsCaFile: /my/ca.pem
+#BackendEnableTls: true
+#BackendTlsVerifyCert: true
+#BackendTlsCaFile: /my/ca.pem
+#EnableMetrics: false
+#EnableRequestTracing: false
