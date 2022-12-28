@@ -88,18 +88,24 @@ func (grp *GrpcReverseProxy) DialBackend(ctx context.Context, endpoint string, o
 		tlsCfg := &tls.Config{
 			InsecureSkipVerify: !grp.opts.BackendTlsVerifyCert,
 		}
+		var cp *x509.CertPool
 		if grp.opts.BackendTlsCaFile != "" {
 			var cab []byte
 			cab, err = os.ReadFile(grp.opts.BackendTlsCaFile)
 			if err != nil {
 				return nil, err
 			}
-			cp := x509.NewCertPool()
+			cp = x509.NewCertPool()
 			if !cp.AppendCertsFromPEM(cab) {
 				return nil, fmt.Errorf("credentials: failed to append ca certificates")
 			}
-			tlsCfg.RootCAs = cp
+		} else {
+			cp, err = x509.SystemCertPool()
+			if err != nil {
+				return nil, fmt.Errorf("failed to create system cert pool, err: %v", err)
+			}
 		}
+		tlsCfg.RootCAs = cp
 		backendCredential = credentials.NewTLS(tlsCfg)
 	} else {
 		backendCredential = insecure.NewCredentials()
