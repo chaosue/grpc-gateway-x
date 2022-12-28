@@ -15,3 +15,9 @@ and a reverse-proxy for GRPC servers to expose their services and response to th
 
 ### run
 `./grcp-gateway-x --config config.yaml`
+
+### proxy with auto service discovery usecase
+#### prerequisites
+* the services must be registered per the rules of `github.com/go-kratos/kratos/contrib/registry`
+* the registered service names must the prefix part of the full path in GRPC requests, e.g.     
+   `/com.yourcorp.yourproj.grpc.Service1/Method1`, `com.yourcorp.yourproj.grpc.Service1` should be the registered service name.
